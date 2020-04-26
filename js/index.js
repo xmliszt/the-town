@@ -1,4 +1,6 @@
 var firebaseApp = null;
+const firebase = require("firebase");
+require("firebase/firestore");
 $(document).ready(()=>{
     var firebaseConfig = {
         apiKey: "AIzaSyC6SFUbS3UHxY9mD3u8a8j_T9Nixi4Dg-Y",

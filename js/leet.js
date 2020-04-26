@@ -1,4 +1,4 @@
-import {firebaseApp} from "./index";
+import {firebaseApp} from "./index.js";
 
 var point;
 async function getVal(ref){
