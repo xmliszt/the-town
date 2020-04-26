@@ -1,0 +1,115 @@
+.leet-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+a {
+    text-align: center;
+}
+
+.btn-group-horizontal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin: 2rem;
+    margin-top: 0 !important;
+}
+
+button {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.btn-easy {
+    background-color: #caffd3;
+    border: 1px solid #2dff3e;
+    color: #008b3a;
+}
+
+.btn-medium {
+    background-color: #b7e6ff;
+    border: 1px solid #2db6ff;
+    color: #004d8b;
+}
+
+.btn-hard {
+    background-color: #ffb7b7;
+    border: 1px solid #ff2d2d;
+    color: #8b0000;
+}
+
+.btn-score-display {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 3rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.score-container {
+    width: 100%;
+    height: 3rem;
+    text-align: center;
+}
+
+.score {
+    font-size: 1.5rem !important;
+    font-weight: 700;
+}
+
+.easy-score {
+    color: #008b3a;
+}
+
+.medium-score {
+    color: #004d8b;
+}
+
+.hard-score {
+    color: #8b0000;
+}
+
+.void-space {
+    height: 10vh;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+
+.fade-enter, .fade-leave-to {
+opacity: 0;
+}
+
+@media(max-width: 768px){
+    button {
+        font-size: small;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        padding: 0.2rem;
+    }
+
+    .btn-group-horizontal {
+        display: block;
+        padding: .5rem;
+        margin: .5rem;
+    }
+
+    .btn-score-display {
+        margin-top: 1rem;
+        padding-left: .5rem;
+        padding-right: .5rem;
+        margin-left: .5rem;
+        margin-right: .5rem;
+    }
+
+    .score-container {
+        height: 2rem;
+    }
+}

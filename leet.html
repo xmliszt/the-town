@@ -1,0 +1,82 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetCode Record Center</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/leet.css">
+    <link rel="stylesheet" href="./css/all.css">
+    <script src="./js/leet.js" type="module"></script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a href="index.html" class="navbar-brand">
+            <img src="./img/logo-sm.png" alt="BBFISH" width="30px" height="30px">
+            <span style="margin-left: 1rem">BBFISH TOWN</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Dashboard</a>
+                </li>
+                <li class="nav-item active">
+                    <a href="leet.html" class="nav-link">LeetCode</a>
+                </li>
+                <li class="nav-items">
+                    <a href="shop.html" class="nav-link">Shop</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+        
+    <div class="body-section" id="score">
+        <div class="leet-logo">
+            <a href="https://leetcode.com/problemset/all/" target="_blank"><img src="./img/leet.png" alt="LeetCode" width="30%"></a>
+        </div>
+        <div class="btn-score-display">
+            <div class="score-container">
+                <div id="easy" class="score easy-score" style="display: none;">+1</div>
+            </div>
+            <div class="score-container">
+                <div id="med" class="score medium-score" style="display: none;">+2</div>
+            </div>
+            <div class="score-container">
+                <div id="hard" class="score hard-score" style="display: none;">+3</div>
+            </div>
+        </div>
+        <div class="btn-group-horizontal">
+            <button type="button" class="btn btn-easy">Easy</button>
+            <button type="button" class="btn btn-medium">Medium</button>
+            <button type="button" class="btn btn-hard">Hard</button>
+        </div>
+    </div>
+
+    <div class="void-space"></div>
+
+    <div class="footer-section">
+
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                name: "BBFISH",
+            }
+        });
+    </script>
+    
+</body>
+
+</html>
