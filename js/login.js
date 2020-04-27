@@ -12,7 +12,6 @@ $(document).ready(()=>{
             db.collection("users").doc(username).get().then((doc)=>{
                 console.log(doc.exists);
                 if (!doc.exists) {
-                    $('#signup-alert').fadeIn();
                     $('#alert-msg').html("You have not registered yet! Please sign up first!");
                     $('#alert-msg').fadeIn();
                 } else {
@@ -38,14 +37,12 @@ $(document).ready(()=>{
                         }
                         window.location.href = "index.html";
                     } else {
-                        $('#signup-alert').fadeIn();
                         $('#alert-msg').html("Incorrect username or password!");
                         $('#alert-msg').fadeIn();
                     }
                 }
             }).catch(err=>{
                 console.error(err);
-                $('#signup-alert').fadeIn();
                 $('#alert-msg').html("Failed to log in!");
                 $('#alert-msg').fadeIn();
             })
