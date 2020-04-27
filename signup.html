@@ -2,76 +2,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LeetCode Record Center</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/pbkdf2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/leet.css">
+    <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/all.css">
-    <script src="./js/leet.js"></script>
+    <title>User Signup</title>
 </head>
-
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a href="index.html" class="navbar-brand">
-            <img src="./img/logo-sm.png" alt="BBFISH" width="30px" height="30px">
-            <span style="margin-left: 1rem">THE TOWN</span>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">Dashboard</a>
-                </li>
-                <li class="nav-item active">
-                    <a href="leet.html" class="nav-link">LeetCode</a>
-                </li>
-                <li class="nav-items">
-                    <a href="shop.html" class="nav-link">Shop</a>
-                </li>
-                <li class="nav-item">
-                    <a href="profile.html" class="nav-link">Profile</a>
-                </li>
-            </ul>
-        </div>
-        <div class="user-portal">
-            <a id="user-portal" href="login.html" style="color: #49c267 !important;" style="display: none;"><i class="fas fa-user-lock"></i></a>
-            <a id="signout" style="color: #ff7b82 !important; display: none;"><i class="fas fa-sign-out-alt"></i></a>
-        </div>
-    </nav>
-        
-    <div class="body-section" id="score">
-        <div class="leet-logo">
-            <a href="https://leetcode.com/problemset/all/" target="_blank"><img src="./img/leet.png" alt="LeetCode" width="30%"></a>
-        </div>
-        <div class="leet-info">
-            <p>Go to LeetCode website via the logo above and complete a problem! Come back and click on the problem level that you just completed to give yourself a point reward!</p>
-        </div>
-        <div class="btn-score-display">
-            <div class="score-container">
-                <div id="easy" class="score easy-score" style="display: none;">+1</div>
+    <div class="void-space"></div>
+    <div class="login-container" id="signup">
+        <div class="login-card box-shadow">
+            <div class="close-btn"><a href="login.html" style="color: black;"><i class="far fa-times-circle"></i></a></div>
+            <h1 style="margin-bottom: 3rem;">Signup</h1>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="first-addon">First Name</span>
+                </div>
+                <input id="firstName" type="text" class="form-control" placeholder="first name" aria-label="firstName" aria-describedby="first-addon">
             </div>
-            <div class="score-container">
-                <div id="med" class="score medium-score" style="display: none;">+2</div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="last-addon">Last Name</span>
+                </div>
+                <input id="lastName" type="text" class="form-control" placeholder="last name" aria-label="lastName" aria-describedby="last-addon">
             </div>
-            <div class="score-container">
-                <div id="hard" class="score hard-score" style="display: none;">+3</div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="username-addon">Username</span>
+                </div>
+                <input v-model="username" id="username" type="text" class="form-control" placeholder="username" aria-label="username" aria-describedby="username-addon">
             </div>
-        </div>
-        <div class="btn-group-horizontal">
-            <button type="button" class="btn btn-easy">Easy</button>
-            <button type="button" class="btn btn-medium">Medium</button>
-            <button type="button" class="btn btn-hard">Hard</button>
+            <div id="username-success" class="alert alert-success" style="display: none;"></div>
+            <div id="username-alert" class="alert alert-danger" style="display: none;"></div>
+            <div class="input-group mb-3">
+                <input v-model="password" id="password" type="password" class="form-control" placeholder="password">
+            </div>
+            <div id="password-success" class="alert alert-success" style="display: none;"></div>
+            <div id="password-alert" class="alert alert-danger" style="display: none;"></div>
+            <div class="input-group mb-3">
+                <input v-model="repeat" id="password" type="password" class="form-control" placeholder="repeat password">
+            </div>
+            <div id="repeat-success" class="alert alert-success" style="display: none;"></div>
+            <div id="repeat-alert" class="alert alert-danger" style="display: none;"></div>
+            <div id="alert-msg" class="alert alert-danger" style="display: none;"></div>
+            <button type="button" class="btn btn-login" id="signup-btn">Sign Up</button>
         </div>
     </div>
 
+    <div class="void-space"></div>
     <div class="void-space"></div>
 
     <div class="footer-section">
@@ -85,6 +72,7 @@
         </div>
     </div>
 
+    <script src="./js/signup.js"></script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
 
@@ -109,16 +97,5 @@
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
     </script>
-
-    <script>
-        new Vue({
-            el: "#app",
-            data: {
-                name: "BBFISH",
-            }
-        });
-    </script>
-    
 </body>
-
 </html>

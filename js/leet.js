@@ -1,28 +1,63 @@
-import {firebaseApp} from "./index.js";
+$(document).ready(()=>{
+    console.info("Firebase initialized!");
+    db = firebase.firestore();
+    var name = window.localStorage.getItem("username");
+    if (!name) {
+        $('#user-portal').show();
+        $('#signout').hide();
+    } else {
+        $('#user-portal').hide();
+        $('#signout').show();
+    }
+    var id = window.localStorage.getItem("user");
+    $('.btn-easy').click(async ()=>{
+        if (!name) {
+            window.location.href = "login.html"; 
+            return;
+        }
+        await updatePoint(1);
+        $('#easy').show();
+        $('#easy').fadeOut(500);
+    });
 
-var point;
-async function getVal(ref){
-    ref.get().then((doc) => {
-        console.log(doc.data());
-    }).catch((err)=>{console.error(error)});
-}
+    $('.btn-medium').click(async ()=>{
+        if (!name) {
+            window.location.href = "login.html"; 
+            return;
+        }
+        await updatePoint(2);
+        $('#med').show();
+        $('#med').fadeOut(500);
+    });
 
-var pointRef = firebaseApp.collection("profile").doc("leet-point");
+    $('.btn-hard').click(async ()=>{
+        if (!name) {
+            window.location.href = "login.html"; 
+            return;
+        }
+        await updatePoint(3);
+        $('#hard').show();
+        $('#hard').fadeOut(500);
+    });
 
-$('.btn-easy').click(async ()=>{
-    $('#easy').show();
-    $('#easy').fadeOut(500);
-    await getVal(pointRef);
-});
+    $('#signout').click(()=>{
+        var confirm = window.confirm("Are you sure about signing out?");
+        if (confirm) {
+            window.localStorage.removeItem("username");
+            window.localStorage.removeItem("user");
+            window.localStorage.removeItem("admin");
+            window.location.reload();
+        }
+    });
 
-$('.btn-medium').click(()=>{
-    $('#med').show();
-    $('#med').fadeOut(500);
-    point += 2;
-});
+    
+    async function updatePoint(newVal){
+        await db.collection("users").doc(id).get().then((doc) => {
+            var point = doc.data().point;
+            db.collection("users").doc(id).update({
+                point: Number(point) + Number(newVal)
+            });
+        }).catch((err)=>{console.error(err)});
+    }
 
-$('.btn-hard').click(()=>{
-    $('#hard').show();
-    $('#hard').fadeOut(500);
-    point += 3;
 });

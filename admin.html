@@ -7,14 +7,14 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/leet.css">
     <link rel="stylesheet" href="./css/all.css">
-    <script src="./componenets/NavBar.js"></script>
-    <script src="./js/index.js"></script>
-    <title>The Town</title>
+    <script src="./js/admin.js"></script>
+    <title>Admin Dashboard</title>
 </head>
 <body>
-
     <div id="navbar">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a id="brand" class="navbar-brand">
@@ -47,13 +47,26 @@
         </nav>
     </div>
 
-    <div class="header-section box-shadow" id="user">
-        <h1>Hello {{name}} ! Welcome to THE TOWN!</h1>
-    </div>
-
     <div class="body-section">
-        <a href="leet.html" class="btn btn1">LEETCODE RECORD CENTER</a>
-        <a class="btn" disabled>COMING SOON...</a>
+        <div style="text-align: center;">
+            <h4>Item Creation</h4>
+        </div>
+        <div class="input-group mb-3">
+            <input class="form-control" id="item-name" type="text" name="item-name" placeholder="Item Name">
+        </div>
+        <div class="input-group mb-3">
+            <input class="form-control" id="item-quantity" type="number" name="item-quantity" placeholder="Item Quantity">
+        </div>
+        <div class="input-group mb-3">
+            <input class="form-control" id="item-price" type="number" name="item-price" placeholder="Item Price">
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fab fa-viacoin"></i></span>
+            </div>
+        </div>
+        <div id="alert-success" class="alert alert-success" style="display: none;"></div>
+        <div id="alert-msg" class="alert alert-danger" style="display: none;"></div>
+        <button id="createItem" type="button" class="btn btn-warning">Create Item</button>
+
     </div>
 
     <div class="footer-section">
@@ -66,5 +79,30 @@
             </div>
         </div>
     </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyC6SFUbS3UHxY9mD3u8a8j_T9Nixi4Dg-Y",
+        authDomain: "bbfish-town.firebaseapp.com",
+        databaseURL: "https://bbfish-town.firebaseio.com",
+        projectId: "bbfish-town",
+        storageBucket: "bbfish-town.appspot.com",
+        messagingSenderId: "808191526396",
+        appId: "1:808191526396:web:b5e6bc2feab12979c35e79",
+        measurementId: "G-M4TZVEYVDX"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    </script>
 </body>
 </html>
