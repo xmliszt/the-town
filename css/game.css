@@ -1,0 +1,27 @@
+.game-body {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(37, 37, 37);
+    width: 100%;
+}
+
+
+.game-frame {
+   width: 100%;
+}
+
+.game-rule {
+    padding: 0.5rem;
+    color: white;
+    font-size: 1vw;
+    font-family: "Pixel", Arial, Helvetica, sans-serif;
+    width: 40%;
+}
+
+.ranking {
+    padding: 0.5rem;
+    color: white;
+    font-family: "Pixel", Arial, Helvetica, sans-serif;
+    font-size: 1vw;
+    width: 20%;
+}

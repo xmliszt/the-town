@@ -88,9 +88,9 @@ $(document).ready(()=>{
         var password = signupInputHandler.password;
         var firstName = $('#firstName').val();
         var lastName = $('#lastName').val();
-        var repeat = signupInputHandler.repeat;
-        if (firstName == "" || lastName == ""){
-            $('#alert-msg').html("First name and last name cannot be empty!");
+        var username = $('#username').val();
+        if (username == ""){
+            $('#alert-msg').html("Username cannot be empty!");
             $('#alert-msg').fadeIn();
             return;
         } else {

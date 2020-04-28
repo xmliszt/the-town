@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/leet.css">
     <link rel="stylesheet" href="./css/all.css">
-    <script src="./js/profile.js"></script>
-    <title>My Profile</title>
+    <link rel="stylesheet" href="./css/game.css">
+    <script src="./js/rank.js"></script>
+    <title>Star Collector Mini Game</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -33,10 +34,10 @@
                 <li class="nav-item">
                     <a href="shop.html" class="nav-link">Shop</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a href="profile.html" class="nav-link">Profile</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a href="game.html" class="nav-link">Game</a>
                 </li>
             </ul>
@@ -47,37 +48,57 @@
         </div>
     </nav>
 
-    <div class="header-section box-shadow" id="greetMe">
-        <h1>Hello {{name}} ! Check out your profile here!</h1>
-    </div>
 
     <div class="body-section">
-        <div>
-            <h4>Purchase History</h4>
+        <div class="game-body">
+            <div class="game-rule">
+                <h5 style="color: greenyellow;">Game Rules:</h4>
+                <p>Welcome to star collector. In this game, you will control the small boy to collect all the stars</p>
+                <p>Hit <b style="color: rgb(243, 129, 129);">"START"</b> to start the game!</p>
+                <p>Press <b style="color: rgb(245, 245, 115);">"UP"</b> or <b style="color: rgb(245, 245, 115);">"SPACE"</b> to jump!</p>
+                <p>Press <b style="color: rgb(245, 245, 115);">"LEFT"</b> to go left.</p>
+                <p>Press <b style="color: rgb(245, 245, 115);">"RIGHT"</b> to go right.</p>
+                <p>Game will be more and more difficult as bombs are being generated. Be careful not to hit the bomb!</p>
+                <p>There is a <b style='color: pink'>HEART</b> that helps our small boy to jump higher! Use it wisely 😊</p>
+                <p>Small boy catches one star will <b>+10</b> points. If star is caught by the heart, <b>+20</b>!</p>
+                <p><b>See the ranking on the right to compare with your friends!</b></p>
+            </div>
+            <div class="game-frame">
+                <iframe src="./starCollector.html" frameborder="2" width="100%", height="100%">Game Not Available!</iframe>
+            </div>
+            <div class="ranking">
+                <div class="my-rank" id="myRank">
+                    <p><b style="color:rgb(255, 251, 7)e">Name: {{myName}}</b></p>
+                    <p>My Rank : <b style="color: #ff5b5b; font-size: 1.2vw;"><em><span>{{myRank}}</span></em></b></p>
+                </div>
+                <div class="global-rank">
+                    <p><b>Top 20 Players</b></p>
+                    <table class="table table-dark table-sm table-responsive" style="text-align: center;">
+                        <thead>
+                            <tr>
+                                <th scope="col">Rank</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Score</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ranking">
+                            <tr v-for="(player, index) in players">
+                                <td v-if="myName==player.name" class="table-danger" style="color: rgb(121, 0, 0);">{{index+1}}</td>
+                                <td v-else>{{index+1}}</td>
+
+                                <td v-if="myName==player.name" class="table-danger" style="color: rgb(121, 0, 0);">{{player.name}}</td>
+                                <td v-else>{{player.name}}</td>
+
+                                <td v-if="myName==player.name" class="table-danger" style="color: rgb(121, 0, 0);">{{player.score}}</td>
+                                <td v-else>{{player.score}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-        <table class="table table-light" style="text-align: center;">
-            <thead>
-                <tr>
-                    <th scope="col">Index</th>
-                    <th scope="col">Item</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Last Purchase</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody id="myItems">
-                <tr v-for="(item, index) in items">
-                    <td>{{index+1}}</td>
-                    <td>{{item.name}}</td>
-                    <td>{{item.quantity}}</td>
-                    <td><span>{{item.last}} </span></td>
-                    <td>
-                        <button type="button" class="btn btn-remove" v-on:click="remove(index)">Remove One</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
     </div>
+
 
     <div class="footer-section">
         <p>Li Yuxuan @ 2020 All Rights Reserved</p>

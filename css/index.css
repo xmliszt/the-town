@@ -8,6 +8,11 @@ html, body{
     src: url("./../fonts/Raleway-Medium.ttf");
 }
 
+@font-face{
+    font-family: "Pixel";
+    src: url("./../fonts/Pixel.ttf");
+}
+
 .header-section{
     display: flex;
     justify-content: center;
@@ -20,7 +25,8 @@ html, body{
 }
 
 .body-section{
-    padding: 5rem;
+    padding: 1rem;
+    padding-bottom: 5rem;
     display: grid;
     position: relative;
 }
@@ -74,7 +80,6 @@ html, body{
     border-radius: 5px;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
-    margin-left: 1rem;
     margin-right: 1rem;
     padding: 1rem;
     width: 100%;
@@ -84,6 +89,14 @@ html, body{
     background-image: url("./../img/bg1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    color: white;
+}
+
+.btn2 {
+    background-image: url("./../img/bg-grassland-sm.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
     color: white;
 }
 
@@ -99,6 +112,10 @@ a:hover{
     cursor: pointer;
 }
 
+.table {
+    font-size: 1vw !important;
+}
+
 @media(max-width: 768px){
 
     html, body {
@@ -111,6 +128,7 @@ a:hover{
 
     .body-section {
         padding: 2rem;
+        padding-top: 1rem;
     }
 
     .footer-section {

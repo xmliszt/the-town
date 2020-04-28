@@ -30,7 +30,10 @@ $(document).ready(()=>{
                     });
                     var pwd = decrypted.toString(CryptoJS.enc.Utf8);
                     if (password === pwd){
-                        window.localStorage.setItem("username", doc.data().firstName + " " + doc.data().lastName);
+                        var firstName = doc.data().firstName;
+                        var lastName = doc.data().lastName;
+                        if (firstName != "" && lastName != "") window.localStorage.setItem("username", doc.data().firstName + " " + doc.data().lastName);
+                        else window.localStorage.setItem("username", doc.data().username);
                         window.localStorage.setItem("user", doc.id);
                         if (doc.id == "xmliszt") {
                             window.localStorage.setItem("admin", "true");
