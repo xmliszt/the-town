@@ -31,7 +31,9 @@ $(document).ready(()=>{
                     try{
                         snapshot.forEach((doc) => {
                             if (this.username === doc.id) {
-                                throw {};
+                                throw new Error("repeat");
+                            } else if (this.username == ""){
+                                throw new Error("empty")
                             }
                         });
                         $('#username-success').html("Your username is ok!");
@@ -39,10 +41,17 @@ $(document).ready(()=>{
                         $('#username-alert').hide();
                         $('#signup-btn').prop('disabled', false);
                     } catch (e) {
-                        $('#username-alert').html("Your username has already been taken!");
-                        $('#username-alert').fadeIn();
-                        $('#username-success').hide();
-                        $('#signup-btn').prop('disabled', true);
+                        if(e.message == "repeat"){
+                            $('#username-alert').html("Your username has already been taken!");
+                            $('#username-alert').fadeIn();
+                            $('#username-success').hide();
+                            $('#signup-btn').prop('disabled', true);
+                        } else if (e.message == "empty"){
+                            $('#username-alert').html("Username cannot be empty!");
+                            $('#username-alert').fadeIn();
+                            $('#username-success').hide();
+                            $('#signup-btn').prop('disabled', true);
+                        }
                     }
                     
                 }).catch(err=>{
@@ -89,36 +98,30 @@ $(document).ready(()=>{
         var firstName = $('#firstName').val();
         var lastName = $('#lastName').val();
         var username = $('#username').val();
-        if (username == ""){
-            $('#alert-msg').html("Username cannot be empty!");
-            $('#alert-msg').fadeIn();
-            return;
-        } else {
-            var iv = CryptoJS.lib.WordArray.random(128/8);
-            var salt = CryptoJS.lib.WordArray.random(128/8);
-            var key = CryptoJS.PBKDF2("~!@BI$*%^cvaSFBadf14%H$#^", salt, {
-                keySize: 256/32,
-                iterations: 100
-              });
-            var encrypted = CryptoJS.AES.encrypt(password, key, {
-                iv: iv,
-                padding: CryptoJS.pad.Pkcs7,
-                mode: CryptoJS.mode.CBC
+        var iv = CryptoJS.lib.WordArray.random(128/8);
+        var salt = CryptoJS.lib.WordArray.random(128/8);
+        var key = CryptoJS.PBKDF2("~!@BI$*%^cvaSFBadf14%H$#^", salt, {
+            keySize: 256/32,
+            iterations: 100
             });
-            db.collection("users").doc(username).set({
-                firstName: firstName,
-                lastName: lastName,
-                password: salt.toString() + iv.toString() + encrypted.toString(),
-                point: 0,
-                items: []
-            }).then(()=>{
-                window.alert("Sign up successfully! Please log in!");
-                window.location.href = "login.html";
-            }).catch(err=>{
-                console.error(err);
-                $('#alert-msg').html("Something wrong when we were signing you up! Please try again!");
-                $('#alert-msg').fadeIn();
-            })
-        }
+        var encrypted = CryptoJS.AES.encrypt(password, key, {
+            iv: iv,
+            padding: CryptoJS.pad.Pkcs7,
+            mode: CryptoJS.mode.CBC
+        });
+        db.collection("users").doc(username).set({
+            firstName: firstName,
+            lastName: lastName,
+            password: salt.toString() + iv.toString() + encrypted.toString(),
+            point: 0,
+            items: []
+        }).then(()=>{
+            window.alert("Sign up successfully! Please log in!");
+            window.location.href = "login.html";
+        }).catch(err=>{
+            console.error(err);
+            $('#alert-msg').html("Something wrong when we were signing you up! Please try again!");
+            $('#alert-msg').fadeIn();
+        })
     });
 });

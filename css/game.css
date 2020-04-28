@@ -25,3 +25,9 @@
     font-size: 1vw;
     width: 20%;
 }
+
+.rand-info {
+    margin-top: 1rem;
+    font-size: 1vw;
+    font-family: "Pixel", Arial, Helvetica, sans-serif;
+}

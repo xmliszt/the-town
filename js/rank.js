@@ -43,6 +43,13 @@ $(document).ready(()=>{
         window.localStorage.setItem("previous-score", 0);
     }
 
+    var rankInfo = new Vue({
+        el: "#rank-info",
+        data: {
+            isGuest: guest
+        }
+    });
+
     var myRank = new Vue({
         el: "#myRank",
         data: {

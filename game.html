@@ -94,7 +94,17 @@
                             </tr>
                         </tbody>
                     </table>
+                    <div id="rank-info">
+                        <div v-if="isGuest" class="rank-info" >
+                            <em>Want to have your score permanently recorded and updated? Have a quick <a href="signup.html">sign up now!</a></em>
+                        </div>
+                        <div v-else="isGuest" class="rank-info">
+                            <em style="color: #49c267;">You are signed in! Your score will be permanently stored! Have fun!</em>
+                        </div>
+                    </div>
+                   
                 </div>
+                
             </div>
         </div>
     </div>
