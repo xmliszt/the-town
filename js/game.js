@@ -27,20 +27,20 @@ var name;
 function preload(){
 
     scene = game.scene.scenes[0];
-    this.load.image('grassland', './../../assets/bg-grassland.jpg');
-    this.load.image('ground', './../../assets/ground.png');
-    this.load.image('star', './../../assets/star.png');
-    this.load.spritesheet('walk', './../../assets/sprite-walk.png', { frameWidth: 85, frameHeight: 88});
-    this.load.spritesheet('front', './../../assets/sprite-front.png', { frameWidth: 85, frameHeight: 88});
-    this.load.image('back', './../../assets/sprite-back.png');
-    this.load.image('stop', './../../assets/sprite-stop.png');
-    this.load.image('bomb', './../../assets/bomb.png');
-    this.load.spritesheet('heart', './../../assets/heart.png', { frameWidth: 866, frameHeight: 650});
-    this.load.spritesheet('start', './../../assets/button-sprite.png', { frameWidth: 152, frameHeight: 60});
-    this.load.audio('bgm', ['./../../audio/bgm.mp3', './../../audio/bgm.ogg']);
-    this.load.audio('coin', ['./../../audio/coin.mp3', './../../audio/coin.ogg']);
-    this.load.audio('bomb', ['./../../audio/bomb.mp3', './../../audio/bomb.ogg']);
-    this.load.audio('jump', ['./../../audio/jump.mp3', './../../audio/jump.ogg']);
+    this.load.image('grassland', './assets/bg-grassland.jpg');
+    this.load.image('ground', './assets/ground.png');
+    this.load.image('star', './assets/star.png');
+    this.load.spritesheet('walk', './assets/sprite-walk.png', { frameWidth: 85, frameHeight: 88});
+    this.load.spritesheet('front', './assets/sprite-front.png', { frameWidth: 85, frameHeight: 88});
+    this.load.image('back', './assets/sprite-back.png');
+    this.load.image('stop', './assets/sprite-stop.png');
+    this.load.image('bomb', './assets/bomb.png');
+    this.load.spritesheet('heart', './assets/heart.png', { frameWidth: 866, frameHeight: 650});
+    this.load.spritesheet('start', './assets/button-sprite.png', { frameWidth: 152, frameHeight: 60});
+    this.load.audio('bgm', ['./audio/bgm.mp3', './audio/bgm.ogg']);
+    this.load.audio('coin', ['./audio/coin.mp3', './audio/coin.ogg']);
+    this.load.audio('bomb', ['./audio/bomb.mp3', './audio/bomb.ogg']);
+    this.load.audio('jump', ['./audio/jump.mp3', './audio/jump.ogg']);
 }
 
 var music;
