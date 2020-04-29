@@ -89,6 +89,9 @@
                         <tbody id="ranking">
                             <tr v-for="(player, index) in players">
                                 <td v-if="myName==player.name" class="table-danger" style="color: rgb(121, 0, 0);">{{index+1}}</td>
+                                <td v-else-if="index==0" class="bg-success">{{index+1}}</td>
+                                <td v-else-if="index==1" class="bg-warning">{{index+1}}</td>
+                                <td v-else-if="index==2" class="bg-info">{{index+1}}</td>
                                 <td v-else>{{index+1}}</td>
 
                                 <td v-if="myName==player.name" class="table-danger" style="color: rgb(121, 0, 0);">{{player.name}}</td>
