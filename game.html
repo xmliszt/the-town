@@ -95,9 +95,15 @@
                                 <td v-else>{{index+1}}</td>
 
                                 <td v-if="myName==player.name" class="table-danger" style="color: rgb(121, 0, 0);">{{player.name}}</td>
+                                <td v-else-if="index==0" class="bg-success">{{player.name}}</td>
+                                <td v-else-if="index==1" class="bg-warning">{{player.name}}</td>
+                                <td v-else-if="index==2" class="bg-info">{{player.name}}</td>
                                 <td v-else>{{player.name}}</td>
 
                                 <td v-if="myName==player.name" class="table-danger" style="color: rgb(121, 0, 0);">{{player.score}}</td>
+                                <td v-else-if="index==0" class="bg-success">{{player.score}}</td>
+                                <td v-else-if="index==1" class="bg-warning">{{player.score}}</td>
+                                <td v-else-if="index==2" class="bg-info">{{player.score}}</td>
                                 <td v-else>{{player.score}}</td>
                             </tr>
                         </tbody>
