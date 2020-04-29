@@ -68,15 +68,16 @@ $(document).ready(()=>{
             updateRank: ()=>{
                 db.collection("players").get().then((snapshot)=>{
                     var unsorted = [];
-                    try{
-                        snapshot.forEach((doc, idx)=>{
-                            if (idx == 20) {throw {};}
-                            var data = doc.data();
-                            unsorted.push(data);
-                        });
-                    } catch(e){
-                    }
+
+                    snapshot.forEach((doc)=>{
+                        var data = doc.data();
+                        unsorted.push(data);
+                    });
+                   
                     var sorted = unsorted.sort(customeCompare);
+
+                    sorted = sorted.slice(0, 20);
+
                     var rank = sorted.findIndex(findMe) + 1;
                     if (rank > 0) myRank.myRank = rank;
                     ranking.players = sorted;

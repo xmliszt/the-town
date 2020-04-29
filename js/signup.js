@@ -112,6 +112,7 @@ $(document).ready(()=>{
         db.collection("users").doc(username).set({
             firstName: firstName,
             lastName: lastName,
+            username: username,
             password: salt.toString() + iv.toString() + encrypted.toString(),
             point: 0,
             items: []

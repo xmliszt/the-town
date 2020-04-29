@@ -10,6 +10,7 @@ var config = {
         default: 'arcade',
         arcade: {
             gravity: {y:300},
+            fps: 120,
             debug: false
         }
     },
