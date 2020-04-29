@@ -109,6 +109,10 @@ $(document).ready(()=>{
             padding: CryptoJS.pad.Pkcs7,
             mode: CryptoJS.mode.CBC
         });
+        db.collection("players").doc(username).set({
+            name: username,
+            score: 0
+        });
         db.collection("users").doc(username).set({
             firstName: firstName,
             lastName: lastName,
