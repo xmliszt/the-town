@@ -76,11 +76,11 @@ $(document).ready(()=>{
                    
                     var sorted = unsorted.sort(customeCompare);
 
-                    sorted = sorted.slice(0, 20);
+                    var sliced = sorted.slice(0, 20);
 
                     var rank = sorted.findIndex(findMe) + 1;
                     if (rank > 0) myRank.myRank = rank;
-                    ranking.players = sorted;
+                    ranking.players = sliced;
                 }).catch(err=>{
                     console.error(err);
                 })
